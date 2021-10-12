@@ -1,58 +1,24 @@
 package Week3;
 
-public class GuitarSpec {
-    private Builder builder;
-    private String model;
-    private Type type;
-    private Wood backWood;
-    private Wood topWood;
+public class GuitarSpec extends InstrumentSpec {
+
     private int numStrings;
 
 
-    public GuitarSpec(Builder builder, String model, Type type,int numStrings, Wood backWood, Wood topWood) {
-        this.builder = builder;
-        this.model = model;
-        this.type = type;
-        this.backWood = backWood;
-        this.topWood = topWood;
+    public GuitarSpec(Builder builder, String model, Type type, Wood backWood, Wood topWood, int numStrings) {
+        super(builder, model, type, backWood, topWood);
         this.numStrings = numStrings;
     }
 
-    public Builder getBuilder() {
-        return builder;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public Wood getBackWood() {
-        return backWood;
-    }
-
-    public Wood getTopWood() {
-        return topWood;
-    }
     public int getNumStrings() {
         return numStrings;
     }
     public boolean matches(GuitarSpec otherSpec){
-        if(builder!= otherSpec.builder)
-            return false;
-        if(model!= otherSpec.model)
-            return false;
-        if(type != otherSpec.type)
-            return false;
-        if(backWood!= otherSpec.backWood)
-            return false;
-        if(topWood != otherSpec.topWood)
-            return false;
+        if(!super.matches(otherSpec))
+                return false;
+
         if(numStrings != otherSpec.numStrings)
-            return false;
+                return false;
 
         return true;
     }

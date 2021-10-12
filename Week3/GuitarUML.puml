@@ -2,21 +2,44 @@
 'https://plantuml.com/class-diagram
 
 
+abstract class Instrument{
+-serialNumber
+-price
 
-class Guitar{
++addInstrument():
+}
+
+class Mandolin extends Instrument{
++getSpec(): MandolinSpec
+}
+
+class InstrumentSpec {
+-builder
+-model
+}
+
+class Guitar extends Instrument{
 -String serialNumber
 -double price
 -String model
 }
-class GuitarSpec{
--Builder builder
--String model
--Type type
--Wood backWood
--Wood topWood
+
+class MandolinSpec extends InstrumentSpec{
+-style
+
++getStyle(): style
+}
+
+
+class GuitarSpec extends InstrumentSpec{
+-numStrings
++getNumStrings():int
 }
 class Inventory{
--List guitars
++addInstrument(String,double,spec)
++search(GuitarSpec): Guitar
++search(MandalinSpec): Mandolin
+
 }
 
 
@@ -39,10 +62,13 @@ GuitarSpec -- Builder
 GuitarSpec -- Type
 GuitarSpec -- Wood
 
-Inventory o-- "0..*" Guitar : consists of
+Inventory o-- "0..*" Instrument : consists of
+
 Wood --[Hidden] Builder
 Builder --[Hidden] Type
 GuitarSpec --  Wood
-Guitar "0..*" -o GuitarSpec :has a
+
+Instrument "0..*" o- InstrumentSpec :has a
+
 
 @enduml

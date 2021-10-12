@@ -12,7 +12,7 @@ public class FindGuitarTester {
 
         //what customer is looking for
         GuitarSpec whatLookingFor = new GuitarSpec( Builder.FENDER, "Stratocastor",
-                Type.ELECTRIC,12, Wood.ALDER, Wood.ALDER);
+                Type.ELECTRIC, Wood.ALDER, Wood.ALDER,12);
 
 
         List matchingGuitars = inventory.search(whatLookingFor);
@@ -39,33 +39,38 @@ public class FindGuitarTester {
 
         //define some objects to guitar Spec
 
+
+
         GuitarSpec spec1 = new GuitarSpec( Builder.FENDER ,
                 "Stratocastor",
                 Type.ELECTRIC,
-                12,
                 Wood.ALDER,
-                Wood.ALDER);
+                Wood.ALDER,
+                12);
 
         GuitarSpec spec2 = new GuitarSpec( Builder.GIBSON ,
                 "Stratocastor",
                 Type.ACOUSTIC,
-                12,
                 Wood.ALDER,
-                Wood.ALDER);
+                Wood.ALDER,
+                12);
 
         GuitarSpec spec3 = new GuitarSpec( Builder.GIBSON ,
                 "Stratocastor",
                 Type.ELECTRIC,
-                6,
                 Wood.ALDER,
-                Wood.ALDER);
+                Wood.ALDER,
+                6);
 
         //add guitars to the inventory
-        inventory.addGuitar("V00001",
+        inventory.addInstrument("V00001",
                 1499.99,spec1);
 
-        inventory.addGuitar("V00002",
+        inventory.addInstrument("V00002",
                 1699.99,spec2);
+
+
+       // Guitar guitar1 = new Guitar("V00004",14999.99,spec1);
 
     }
 }
