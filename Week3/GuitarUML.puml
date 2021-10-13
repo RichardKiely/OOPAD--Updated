@@ -10,30 +10,37 @@ abstract class Instrument{
 }
 
 class Mandolin extends Instrument{
-+getSpec(): MandolinSpec
+
 }
 
 class InstrumentSpec {
--builder
 -model
++getBuilder(): Builder
++getModel(): String
++getType():Type
++getBackWood():Wood
++getTopWood():Wood
++matches(InstrumentSpec):boolean
+
+
 }
 
 class Guitar extends Instrument{
--String serialNumber
--double price
--String model
+
 }
 
 class MandolinSpec extends InstrumentSpec{
 -style
 
 +getStyle(): style
++matches(MandalinSpec):boolean
 }
 
 
 class GuitarSpec extends InstrumentSpec{
 -numStrings
 +getNumStrings():int
++matches(GuitarSpec):boolean
 }
 class Inventory{
 +addInstrument(String,double,spec)
@@ -58,15 +65,21 @@ COLLINGS
 MARTIN
 GIBSON
 }
-GuitarSpec -- Builder
-GuitarSpec -- Type
-GuitarSpec -- Wood
+enum Style {
+A
+F
+}
 
+
+InstrumentSpec -- Builder
+InstrumentSpec -- Type
+InstrumentSpec -- Wood
+MandolinSpec -- Style
 Inventory o-- "0..*" Instrument : consists of
 
 Wood --[Hidden] Builder
 Builder --[Hidden] Type
-GuitarSpec --  Wood
+
 
 Instrument "0..*" o- InstrumentSpec :has a
 

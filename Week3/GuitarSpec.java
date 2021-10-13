@@ -14,12 +14,16 @@ public class GuitarSpec extends InstrumentSpec {
         return numStrings;
     }
     public boolean matches(GuitarSpec otherSpec){
-        if(!super.matches(otherSpec))
-                return false;
 
-        if(numStrings != otherSpec.numStrings)
-                return false;
+        if(!matches(otherSpec)) {
 
+            return false;
+        }
+
+        if(numStrings != otherSpec.numStrings) {
+            System.out.println("Im here");
+            return false;
+        }
         return true;
     }
 

@@ -11,11 +11,18 @@ public class FindGuitarTester {
         initialiseInventory(inventory);
 
         //what customer is looking for
-        GuitarSpec whatLookingFor = new GuitarSpec( Builder.FENDER, "Stratocastor",
-                Type.ELECTRIC, Wood.ALDER, Wood.ALDER,12);
+        GuitarSpec whatLookingFor = new GuitarSpec( Builder.FENDER ,
+                "Stratocastor",
+                Type.ELECTRIC,
+                Wood.ALDER,
+                Wood.ALDER,
+                12);
 
+        MandolinSpec lookingFor = new MandolinSpec(Builder.GIBSON,"Stratocastor",Type.ACOUSTIC,Wood.CEDAR,Wood.MAHOGANY,Style.A);
 
         List matchingGuitars = inventory.search(whatLookingFor);
+
+
 
         if(!matchingGuitars.isEmpty())
         {
@@ -39,8 +46,8 @@ public class FindGuitarTester {
 
         //define some objects to guitar Spec
 
-
-
+        MandolinSpec Mspec = new MandolinSpec(Builder.GIBSON,"Stratocastor",Type.ACOUSTIC,Wood.CEDAR,Wood.MAHOGANY,Style.A);
+            inventory.addInstrument("V012345",1399.99,Mspec);
         GuitarSpec spec1 = new GuitarSpec( Builder.FENDER ,
                 "Stratocastor",
                 Type.ELECTRIC,

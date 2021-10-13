@@ -28,7 +28,7 @@ public class Inventory {
     }*/
 
     public void addInstrument(String serialNumber, double price,InstrumentSpec spec){
-        Instrument newInstrument = new Instrument("V012345",1444.99);
+        Instrument newInstrument = new Instrument(serialNumber,price);
         instruments.add(newInstrument);
     }
 
